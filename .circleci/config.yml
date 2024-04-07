@@ -1,12 +1,31 @@
 version: 2.1
-orbs:
-  newman: postman/newman@1.0.0
+
 jobs:
   build:
-    executor: newman/postman-newman-docker
+    docker:
+      - image: circleci/node:14
+
     steps:
       - checkout
-      - newman/newman-run:
-          collection: ./User.postman_collection.json
-          environment: ./my-remote-api-testing.postman_environment.json
-workflows: null
+
+      # Restore cached dependencies if any
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      # Save node_modules to cache for future runs
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # Run tests
+      - run:
+          name: Run Tests
+          command: npm test
