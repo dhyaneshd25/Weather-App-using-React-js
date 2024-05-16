@@ -57,8 +57,9 @@ function App() {
   }, 1000);
   setup(true);
   },[])
-
+/*
   useEffect(()=>{
+    
     let d1=document.querySelector(".d1")
     setTimeout(() => {
       d1.style=` width:10%;top:60%;
@@ -147,11 +148,11 @@ function App() {
       let main=document.querySelector(".Mainbox")
       main.style="display:flex;"
     }, 5000);
-  },[main])
+  },[main]);
+  */
   return (
     <>
-    <h1 id="h">Fortcase Now</h1>
-  <Anim/>
+   <Anim/>
    <Temopapp/>
    </>
   );

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react"
 import {CiLocationOn} from  "react-icons/ci"
+import './TempappStyle.css'
+import { FiSearch } from "react-icons/fi"
 const Temopapp=()=>{
     const [city ,setcity]=useState(null)
+    const [weather,setweather]=useState([])
     const [searchcity,setsearchcity]=useState("Nagpur")
     const [search,setsearch]=useState("Nagpur")
     useEffect(()=>{
@@ -10,36 +13,47 @@ const Temopapp=()=>{
             `
             const reponse = await fetch(url);
             const reJson= await reponse.json();
-            console.log(reJson)
+            console.log(reJson);
+            setweather(reJson.weather);
             setcity(reJson.main);
         }
         fetchApi();
     },[searchcity])
     return (
-        <>
+        <div className="container">
+            <div className="heading">
+            <h1>Fortcase Now</h1>
+            </div>
         <div className="Mainbox">
+        
             <div className="inputdata">
+                <FiSearch size={30} className="search-icon" onClick={()=>{
+            setsearchcity(search);
+           }}/>
                 <input type="text" value={search} className="inputbox" onChange={(event)=>{
     setsearch(event.target.value)}} />
-           <button onClick={()=>{
-            setsearchcity(search);
-           }}> Search</button>
-            </div>
+    </div>
+           
+            
             {!city ? (
                 <p id="p">No data found </p>
             ):(    <div className="InfoDisplay">
+                <div className="left-Infodisplay">
+                <div className="location">
             <h1>
-            <div id="loc"> <CiLocationOn/></div>{searchcity}
+             <CiLocationOn size={30} /></h1>
+             <h1>{searchcity}
+            
             </h1>
+            </div>
             <h2>
-             Temp:-{(city.temp-273).toFixed(2)} 
+             {(city.temp-273).toFixed(2)}C
             </h2>
-            <h3>
-            Min Temp:-{(city.temp_min-273).toFixed(2)}
-            </h3>
-            <h3>
-            Max Temp:-{(city.temp_max-273).toFixed(2)}
-            </h3>
+          </div>
+          <div className="right-Infodisplay">
+            <img src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}/>
+            <h3>{weather[0].description}</h3>
+            </div>
                       </div>
             )
         
@@ -47,7 +61,7 @@ const Temopapp=()=>{
             }
             
          </div>
-        </>
+        </div>
     );
 }
 export default Temopapp;
