@@ -25,7 +25,6 @@ const Temopapp=()=>{
             <h1>Fortcase Now</h1>
             </div>
         <div className="Mainbox">
-        
             <div className="inputdata">
                 <FiSearch size={30} className="search-icon" onClick={()=>{
             setsearchcity(search);
@@ -47,19 +46,20 @@ const Temopapp=()=>{
             </h1>
             </div>
             <h2>
-             {(city.temp-273).toFixed(2)}C
+             {(city.temp-273).toFixed(2)}℃
             </h2>
           </div>
           <div className="right-Infodisplay">
             <img src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}/>
-            <h3>{weather[0].description}</h3>
+            <h2>{weather[0].description}</h2>
             </div>
                       </div>
-            )
-        
-                  
-            }
-            
+            )       
+            }         
+         </div>
+         <div className="footer">
+            <h3>Made by Dhyanesh Dharmik</h3>
+            <a href="https://github.com/dhyaneshd25/Weather-App-using-React-js">Github</a>
          </div>
         </div>
     );

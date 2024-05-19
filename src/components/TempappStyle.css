@@ -1,18 +1,16 @@
 .container{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    border: 0.1px solid red;
-    
 }
 
 .heading{
+    margin-top: 2rem;
    display: flex;
-   position: absolute;
-   left:10%;
-   top:10%;
+   color: aqua;
+   font-size: 1.5rem;
 }
 
 .Mainbox{
@@ -23,13 +21,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:4rem;
-    width: 60%;
-    border: 2px solid purple;
-    background: linear-gradient(to right,rgb(84, 0, 84) 10%,rgb(253, 253, 0) 40%);
+    gap:2rem;
+    width: 400px;
+    border: 5px solid rgb(235, 185, 46);
+    border-radius: 10px 50px 10px 50px;
+    background: linear-gradient(to right,rgb(84, 0, 84) 10%,rgb(253, 253, 0) 80%,aqua);
+    box-shadow: 10px 0px 50px 0px white;
+    animation: main1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
 }
 
-.Mainbox .inputdata{
+.Mainbox:hover{
+    scale: 1.1;
+    transform: rotate3d(deg3);
+    border-radius: 50px 10px 50px 10px;
+    background: linear-gradient(to left,rgb(84, 0, 84) 10%,rgb(253, 253, 0) 80%,aqua);
+    box-shadow: 0px 0px 50px 0px white;
+    animation:main;
+}
+
+
+.inputdata{
     padding: 0.2rem;
     padding-left: 1rem;
     width:70%;
@@ -41,7 +55,7 @@
     transition: all 3ms ease-in;
 }
 
-.Mainbox .inputdata .search-icon:hover{
+.inputdata .search-icon:hover{
     margin: 0.2rem;
     padding: 0.1rem;
     scale:1.2;
@@ -49,7 +63,7 @@
     border-radius: 10px;
 }
 
-.Mainbox input{
+.inputdata input{
     background-color: white;
     width: 70%;
     height: 2rem;
@@ -59,22 +73,107 @@
     border: none;
 }
 
-.Mainbox .inputdata:hover{
+.inputdata:hover{
     scale:1.1;
 }
 
 .InfoDisplay{
     display: flex;
+    padding: 1rem;
     flex-direction: column;
-    gap:2rem;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
+    width: 96%;
+    row-gap: 2;
+    background: linear-gradient(to left,rgb(98, 0,98) 10%,aqua 80%);
+    border: 2px solid saddlebrown;
+    border-radius: 50px 10px 50px 10px;
+    box-shadow: 10px 0 10px 0 black;
+}
+
+.InfoDisplay:hover{
+    scale: 1.35;
+    border-radius: 10px 50px 10px 50px;
+    background: linear-gradient(to right,rgb(98, 0,98) 10%,aqua 80%);
+    color:white;
+    border: 2px solid aqua;
+    animation: main2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
 }
 
 .location{
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+    gap:2rem;
+    
 }
 
+
+.left-Infodisplay h1{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.left-Infodisplay h2{
+    font-size: 4rem;
+}
+.right-Infodisplay{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+}
+
+.footer{
+    margin-bottom: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    color:white;
+    z-index: -1;
+}
+
+.footer a{
+    font-size: 1.3rem;
+color: white;
+}
+.footer a:hover{
+    scale:1.05;
+    color:aqua
+}
+@keyframes main1 {
+    0%{
+        border-left:5px solid aqua;
+        border-right:5px solid aqua;
+    }50%{
+        border-top:5px solid aqua;
+        border-bottom:5px solid aqua;
+    }
+    
+}
+
+@keyframes main2 {
+    0%{
+        border-top:5px solid rgb(255, 0, 208);
+        border-bottom:5px solid rgb(255, 0, 208);
+    }
+    50%{
+        border-left:5px solid rgb(255,0,208);
+        border-right:5px solid rgb(255,0,208);
+    }
+    
+}
+
+@media screen and (max-width:480px) {
+    .Mainbox{
+        width:70%;
+    }
+    .inputdata input{
+        width:55%;
+    }
+}
 
