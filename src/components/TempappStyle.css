@@ -9,8 +9,22 @@
 .heading{
     margin-top: 2rem;
    display: flex;
+   justify-content: space-between;
+   row-gap: 1;
    color: aqua;
    font-size: 1.5rem;
+}
+
+.heading h1{
+    margin: 0.2rem;
+    padding: 0.2rem;
+    display: inline-block;
+    transition: 0.5s all ease-in-out;
+}
+
+.heading h1:hover{
+       color: yellow;
+       scale: 1.1;
 }
 
 .Mainbox{
@@ -179,4 +193,5 @@ color: white;
         width:55%;
     }
 }
+
 

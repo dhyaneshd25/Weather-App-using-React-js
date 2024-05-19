@@ -22,7 +22,7 @@ const Temopapp=()=>{
     return (
         <div className="container">
             <div className="heading">
-            <h1>Fortcase Now</h1>
+            <h1>Fortcase</h1><h1> Now</h1>
             </div>
         <div className="Mainbox">
             <div className="inputdata">
