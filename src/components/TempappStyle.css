@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    
 }
 
 .heading{
@@ -37,6 +38,7 @@
     align-items: center;
     gap:2rem;
     width: 400px;
+    height:55%;
     border: 5px solid rgb(235, 185, 46);
     border-radius: 10px 50px 10px 50px;
     background: linear-gradient(to right,rgb(84, 0, 84) 10%,rgb(253, 253, 0) 80%,aqua);
